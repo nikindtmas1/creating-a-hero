@@ -1,0 +1,20 @@
+{
+  "name": "creating-a-hero",
+  "version": "1.0.0",
+  "description": "typescript react project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikindtmas1/creating-a-hero.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikindtmas1/creating-a-hero/issues"
+  },
+  "homepage": "https://github.com/nikindtmas1/creating-a-hero#readme"
+}
