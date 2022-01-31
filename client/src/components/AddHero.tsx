@@ -2,53 +2,114 @@ import React, { FC, useState } from 'react';
 
 type Props = {};
 
-
+interface IState {
+    hero: {
+        name: string
+        age: number
+        height: string
+        power: string
+    }[]
+}
 
 const AddHero: FC = (props: Props) => {
 
-    const [name, setName] = useState('Niki');
+    const [input, setInput] = useState({
+        name: '',
+        age: 0,
+        height: '',
+        power: ''
+    });
+
+    const [hero, setHero] = useState<IState["hero"]>([
+        {
+            name: '',
+            age: 0,
+            height: '',
+            power: ''
+        }
+    ])
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+        setInput({
+            ...input,
+            [e.target.name]: e.target.value
+        })
+    }
 
     const handleClick = () => {
 
-        setName('Jon')
+        setHero([
+            ...hero,
+            {
+                name: input.name,
+                age: input.age,
+                height: input.height,
+                power: input.power
+            }])
+
     }
 
     return (
 
         <div>
-            <div>{name}</div>
+            <div>
+                <ul>
+                    {hero.map(person => 
+                       
+                        <>
+                            <li>Name: {person.name}</li>
+                            <li>Age: {person.age}</li>
+                            <li>Height: {person.height}</li>
+                            <li>Power: {person.power}</li>
+                        </>
+                    )}
+                </ul>
+            </div>
 
-        <div className='AddHero'>
-            <input 
-            type="text" 
-            placeholder='Name'
-            className='AddHero-input'
-            />
-    
-            <input 
-            type="number" 
-            placeholder='Age'
-            className='AddHero-input'
-            />
-            
-            <input 
-            type="text"
-            placeholder='Height'
-            className='AddHero-input'
-            />
-            
-            <input 
-            type="text"
-            placeholder='Super Power'
-            className='AddHero-input'
-            />
+            <div className='AddHero'>
+                <input
+                    name='name'
+                    type="text"
+                    placeholder='Name'
+                    className='AddHero-input'
+                    onChange={handleChange}
+                    value={input.name}
+                />
 
-            <button 
-            type='button'
-            onClick={handleClick}
-            >
-                Change Name
-            </button>
+                <input
+                    name='age'
+                    type="number"
+                    placeholder='Age'
+                    className='AddHero-input'
+                    onChange={handleChange}
+                    value={input.age}
+                />
+
+                <input
+                    name='height'
+                    type="text"
+                    placeholder='Height'
+                    className='AddHero-input'
+                    onChange={handleChange}
+                    value={input.height}
+                />
+
+                <input
+                    name='power'
+                    type="text"
+                    placeholder='Super Power'
+                    className='AddHero-input'
+                    onChange={handleChange}
+                    value={input.power}
+                />
+
+                <button
+                    type='button'
+                    onClick={handleClick}
+                >
+                    Change Name
+                </button>
             </div>
         </div>
 
