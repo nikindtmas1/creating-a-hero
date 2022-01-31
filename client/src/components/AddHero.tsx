@@ -1,9 +1,23 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 
 type Props = {};
 
+
+
 const AddHero: FC = (props: Props) => {
+
+    const [name, setName] = useState('Niki');
+
+    const handleClick = () => {
+
+        setName('Jon')
+    }
+
     return (
+
+        <div>
+            <div>{name}</div>
+
         <div className='AddHero'>
             <input 
             type="text" 
@@ -28,7 +42,16 @@ const AddHero: FC = (props: Props) => {
             placeholder='Super Power'
             className='AddHero-input'
             />
+
+            <button 
+            type='button'
+            onClick={handleClick}
+            >
+                Change Name
+            </button>
+            </div>
         </div>
+
     );
 };
 
