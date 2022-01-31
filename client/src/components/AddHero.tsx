@@ -55,13 +55,17 @@ const AddHero: FC = (props: Props) => {
         <div>
             <div>
                 <ul>
-                    {hero.map(person => 
-                       
+                    {hero.map(person =>
+
                         <>
-                            <li>Name: {person.name}</li>
-                            <li>Age: {person.age}</li>
-                            <li>Height: {person.height}</li>
-                            <li>Power: {person.power}</li>
+                            <li className='List'>
+                                <div className='List-header'>
+                                    <h2>{person.name}</h2>
+                                </div>
+                                <p>{person.age} years old</p>
+                                <p className='List-note'>Height: {person.height}</p>
+                                <p className='List-note'>Power: {person.power}</p>
+                            </li>
                         </>
                     )}
                 </ul>
